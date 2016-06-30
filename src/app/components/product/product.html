@@ -1,0 +1,40 @@
+<div class="container">
+    <div  ng-repeat="product in vm.product" class="product col-md-4 col-sm-4 col-xs-12">
+    <div class="product_image">
+        <img src="http://smktesting.herokuapp.com/static/{{product.img}} " alt="">
+    </div>
+    <h3 class="product_title">{{product.title}}</h3>
+        <div class="product_description">
+            <h5 class="product_description-title"><b>Description</b></h5>
+            <p>{{product.text}}</p>
+        </div>
+
+    </div>
+    <div class="product-review col-md-6 col-sm-6 col-md-offset-2 col-sm-offset-2 col-xs-12">
+        <h3 class="product-review_title">
+            Reviews
+            <button class="btn" ng-click="vm.addToggle()">Add review</button>
+        </h3>
+        <div class="product-review_add" ng-class="vm.toggle ? 'active' : ''">
+            <form name="form" ng-submit="vm.reviewAdd(params)">
+                <uib-rating ng-model="params.rate" required="" max="vm.max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></uib-rating>
+                <textarea ng-model="params.text" required=""></textarea>
+                <input type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+            </form>
+        </div>
+        <div ng-repeat="review in vm.reviews | orderBy: 'created_at':true" class="product-review_item">
+            <uib-rating ng-model="review.rate" max="vm.max" data-readonly="true" aria-labelledby="default-rating"></uib-rating>
+
+            <div class="product-review_name">
+                <span class="product-review_name">
+                    {{review.created_by.username}}
+                </span>
+                at {{review.created_at}}
+            </div>
+            <div class="product-review_text">
+                {{review.text}}
+            </div>
+        </div>
+    </div>
+</div>
+

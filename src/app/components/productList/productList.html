@@ -1,0 +1,12 @@
+<div class="container">
+    <section  ng-repeat="product in vm.products" class=" product-item col-md-3 col-sm-3 col-xs-12">
+        <a ui-sref="product({id: product.id})" class="product-item_link">
+            <div class="product-item_image">
+                <img src="http://smktesting.herokuapp.com/static/{{product.img}} " alt="">
+            </div>
+            <h3>{{product.title}}</h3>
+            <div class="price">150$</div>
+        </a>
+    </section>
+</div>
+

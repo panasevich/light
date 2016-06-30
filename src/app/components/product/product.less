@@ -1,0 +1,44 @@
+.product {
+  &_image {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+  &_title {
+    padding: 0 15px;
+  }
+  &_description {
+    border-radius: 6px;
+    background: #eee7e9;
+    padding: 15px;
+  }
+}
+.product-review {
+  &_text {
+    border-radius: 6px;
+    background: #fff;
+    padding: 15px;
+  }
+  &_name {
+    font-size: 16px;
+  }
+  &_item {
+    border-radius: 6px;
+    background: #eee7e9;
+    margin-bottom: 15px;
+    padding: 15px;
+  }
+  &_add {
+    margin-bottom: 15px;
+    display: none;
+    &.active {
+      display: block;
+    }
+    textarea {
+      width: 100%;
+      resize: none;
+    }
+
+  }
+}
